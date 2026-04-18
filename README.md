@@ -64,3 +64,4 @@ bash server-stats.sh
 
 Проект создан в рамках изучения DevOps
 Основано на стандартных инструментах мониторинга Linux
+https://roadmap.sh/projects/server-stats
