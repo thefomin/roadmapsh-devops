@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Actions Deployment Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 600px;
+            margin: 20px;
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        
+        .info {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .info h2 {
+            color: #333;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .info p {
+            color: #666;
+            margin: 5px 0;
+        }
+        
+        .deploy-info {
+            background: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 20px;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            margin-top: 30px;
+            color: #999;
+            font-size: 0.8rem;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .status {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #4CAF50;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="badge">
+            <span class="status"></span> Deployed with GitHub Actions
+        </div>
+        <h1>Привет, GitHub Actions! 🚀</h1>
+        <p>Этот сайт был автоматически развернут с помощью CI/CD пайплайна</p>
+        
+        <div class="info">
+            <h2>📋 Информация о развертывании</h2>
+            <p><strong>Время развертывания:</strong> <span id="deploy-time"></span></p>
+            <p><strong>Ветка:</strong> main</p>
+            <p><strong>Триггер:</strong> Изменение index.html</p>
+            <p><strong>Платформа:</strong> GitHub Pages + GitHub Actions</p>
+        </div>
+        
+        <div class="deploy-info">
+            <h2>🔄 Как это работает</h2>
+            <p>1. Изменения в файле <code>index.html</code> пушатся в ветку <code>main</code></p>
+            <p>2. GitHub Actions автоматически запускает workflow</p>
+            <p>3. Сайт развертывается на GitHub Pages</p>
+            <p>4. Изменения становятся доступны по URL выше</p>
+        </div>
+        
+        <button onclick="showAlert()">
+            ✨ Узнать больше о CI/CD
+        </button>
+        
+        <footer>
+            <p>Powered by GitHub Actions | Continuous Integration & Continuous Deployment</p>
+        </footer>
+    </div>
+    
+    <script>
+        function showAlert() {
+            alert('CI/CD — это практика автоматизации сборки, тестирования и развертывания приложений!');
+        }
+        
+        // Отображение времени развертывания
+        document.getElementById('deploy-time').textContent = new Date().toLocaleString('ru-RU');
+        
+        // Дополнительная информация о сборке (может быть добавлена через API)
+        console.log('Сайт развернут через GitHub Actions!');
+    </script>
+</body>
+</html>
